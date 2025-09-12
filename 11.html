@@ -7,9 +7,10 @@
 </head>
 <body>
     <script>
-        let a = parseFloat(prompt("Enter a"));
-        if (a<0) console.log("Модуль a " + (-a)) else console.log("Модуль a " + a);;
-
+      let a = parseFloat(prompt("Enter a"));
+      if (isNaN(a)) console.log("Введено не число");
+      else if (a < 0) console.log("Модуль a = " + (-a));
+      else console.log("Модуль a = " + a);
     </script>
 </body>
 </html>
