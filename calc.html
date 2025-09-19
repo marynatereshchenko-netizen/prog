@@ -11,31 +11,32 @@
     </style>
 </head>
 <body>
-    <p>a: <input type="text" id="inpt1" value="3"></p>
-    <p>b: <input type="text" id="inpt2" value="4"></p>
-    <p>a*b: <input type="text" id="inpt3"></p>    
-    <button id = "btn">Click me</button>
-    <script>
-        let var_p2 = document.getElementById("p2");
-        let var_btn = document.getElementById("btn");
+<h2>Калькулятор депозиту</h2>
 
-        let var_inpt1 = document.getElementById("inpt1");
-        let var_inpt2 = document.getElementById("inpt2");
-        let var_inpt3 = document.getElementById("inpt3");
+  <label>Сума вкладу (грн): </label>
+  <input type="number" id="sum" value="10000"><br><br>
 
-        var_btn.addEventListener("click",fnc);
+  <label>Річна ставка (%): </label>
+  <input type="number" id="rate" value="10"><br><br>
 
+  <label>Кількість років: </label>
+  <input type="number" id="years" value="5"><br><br>
 
-        function fnc (){
-            let a = parseInt(var_inpt1.value);
-            let b = parseInt(var_inpt2.value);
-            let c = a * b;
-            var_inpt3.value = c;
-            console.log(c);
-        }
+  <button onclick="calculate()">Розрахувати</button>
 
+  <h3 id="result"></h3>
 
-        console.log(var_p2);
+  <script>
+    function calculate() {
+      let P = parseFloat(document.getElementById("sum").value);     
+      let r = parseFloat(document.getElementById("rate").value) / 100; 
+      let t = parseInt(document.getElementById("years").value);     
+
+      let S = P * Math.pow(1 + r, t);
+
+      document.getElementById("result").innerText =
+        "Через " + t + " років сума складе: " + S.toFixed(2) + " грн";
+    }
     </script>
 </body>
 </html>
