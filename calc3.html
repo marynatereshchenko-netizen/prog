@@ -1,0 +1,54 @@
+<!DOCTYPE html> <html lang="uk"> 
+<head> 
+<meta charset="UTF-8"> 
+<title>Калькулятор матриць</title> 
+<style> body { font-family: Arial; text-align: center; } 
+table { border-collapse: collapse; margin: 10px; display: inline-block; } 
+td { border: 1px solid black; width: 40px; height: 40px; } 
+input { width: 35px; text-align: center; border: none; } 
+button { margin: 10px; padding: 5px 10px; } 
+</style> 
+</head> 
+<body> 
+    <h2>Калькулятор матриць</h2> 
+    <div> <table id="A"></table> + <table id="B"></table> = <table id="C"></table> </div>
+
+<button onclick="fillRandom()">Заповнити випадковим чином</button>
+<button onclick="calculate()">Обрахувати</button>
+
+<script> 
+function createMatrix(id) { 
+    const table = document.getElementById(id); 
+    for (let i = 0; i < 3; i++) { 
+        const row = document.createElement('tr'); 
+        for (let j = 0; j < 3; j++) { 
+            const cell = document.createElement('td'); 
+            const input = document.createElement('input'); 
+            input.type = "number"; input.value = 0; 
+            cell.appendChild(input); row.appendChild(cell); 
+            } 
+        table.appendChild(row); 
+        } 
+        } function getMatrix(id) { 
+            const table = document.getElementById(id); 
+            return Array.from(table.getElementsByTagName('input')).map(i => Number(i.value)); 
+            } 
+            function setMatrix(id, values) { 
+                const inputs = document.getElementById(id).getElementsByTagName('input'); 
+                values.forEach((v, i) => inputs[i].value = v); 
+                } 
+            function fillRandom() { 
+                ['A', 'B'].forEach(id => { 
+                    const inputs = document.getElementById(id).getElementsByTagName('input'); 
+                Array.from(inputs).forEach(i => i.value = Math.floor(Math.random() * 10)); }); 
+                setMatrix('C', Array(9).fill(0)); 
+                } 
+                function calculate() { 
+                    const A = getMatrix('A'); 
+                    const B = getMatrix('B'); 
+                    const C = A.map((v, i) => v + B[i]); 
+                    setMatrix('C', C); } 
+                    createMatrix('A'); createMatrix('B'); createMatrix('C'); 
+</script>
+</body> 
+</html>
