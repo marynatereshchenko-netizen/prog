@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Валютна таблиця</title>
+    <style>
+        .row{
+            display: flex;
+        }
+        .cell{
+            border:1px solid black;
+            width:150px;
+            text-align:center;
+            font-size:24px;
+            padding:10px;
+        }
+        .header{
+            font-weight:bold;
+            background:#f0f0f0;
+        }
+    </style>
+<body>
+
+    <!-- Заголовок -->
+    <div class="row header">
+        <div class="cell">Валюта</div>
+        <div class="cell">Купівля</div>
+        <div class="cell">Продаж</div>
+    </div>
+
+    <!-- 9 рядків для валют -->
+    <div class="row">
+        <div class="cell" id="d10"></div>
+        <div class="cell" id="d11"></div>
+        <div class="cell" id="d12"></div>
+    </div>
+    <div class="row">
+        <div class="cell" id="d20"></div>
+        <div class="cell" id="d21"></div>
+        <div class="cell" id="d22"></div>
+    </div>
+    <div class="row">
+        <div class="cell" id="d30"></div>
+        <div class="cell" id="d31"></div>
+        <div class="cell" id="d32"></div>
+    </div>
+    <div class="row">
+        <div class="cell" id="d40"></div>
+        <div class="cell" id="d41"></div>
+        <div class="cell" id="d42"></div>
+    </div>
+    <div class="row">
+        <div class="cell" id="d50"></div>
+        <div class="cell" id="d51"></div>
+        <div class="cell" id="d52"></div>
+    </div>
+    <div class="row">
+        <div class="cell" id="d60"></div>
+        <div class="cell" id="d61"></div>
+        <div class="cell" id="d62"></div>
+    </div>
+    <div class="row">
+        <div class="cell" id="d70"></div>
+        <div class="cell" id="d71"></div>
+        <div class="cell" id="d72"></div>
+    </div>
+    <div class="row">
+        <div class="cell" id="d80"></div>
+        <div class="cell" id="d81"></div>
+        <div class="cell" id="d82"></div>
+    </div>
+    <div class="row">
+        <div class="cell" id="d90"></div>
+        <div class="cell" id="d91"></div>
+        <div class="cell" id="d92"></div>
+    </div>
+</body>
+<script>
+    let str_json = `
+        [
+            {"ccy":"CHF","base_ccy":"UAH","buy":"15.50000","sale":"17.00000"},
+            {"ccy":"EUR","base_ccy":"UAH","buy":"19.20000","sale":"20.00000"},
+            {"ccy":"GBP","base_ccy":"UAH","buy":"24.00000","sale":"25.80000"},
+            {"ccy":"PLZ","base_ccy":"UAH","buy":"4.20000","sale":"5.00000"},
+            {"ccy":"USD","base_ccy":"UAH","buy":"15.35000","sale":"15.70000"},
+            {"ccy":"CAD","base_ccy":"UAH","buy":"13.00000","sale":"15.00000"},
+            {"ccy":"SEK","base_ccy":"UAH","buy":"","sale":""},
+            {"ccy":"UAH","base_ccy":"UAH","buy":"","sale":""},
+            {"ccy":"XAU","base_ccy":"UAH","buy":"","sale":""}
+        ]
+        `;
+        let json_var = JSON.parse(str_json);
+
+    d00 = "";  
+    d01 = "";  
+    d02 = ""; 
+
+    d10.innerHTML = "CHF";
+    d11.innerHTML = "15.50000";
+    d12.innerHTML = "17.00000";
+
+    d20.innerHTML = "EUR";
+    d21.innerHTML = "19.20000";
+    d22.innerHTML = "20.00000";
+
+    d30.innerHTML = "GBP";
+    d31.innerHTML = "24.00000";
+    d32.innerHTML = "25.80000";
+
+    d40.innerHTML = "PLZ";
+    d41.innerHTML = "4.20000";
+    d42.innerHTML = "5.00000";
+
+    d50.innerHTML = "SEK";
+    d51.innerHTML = "-";
+    d52.innerHTML = "-";
+
+    d60.innerHTML = "UAH";
+    d61.innerHTML = "-";
+    d62.innerHTML = "-";
+
+    d70.innerHTML = "USD";
+    d71.innerHTML = "15.35000";
+    d72.innerHTML = "15.70000";
+
+    d80.innerHTML = "XAU";
+    d81.innerHTML = "-";
+    d82.innerHTML = "-";
+
+    d90.innerHTML = "CAD";
+    d91.innerHTML = "13.00000";
+    d92.innerHTML = "15.00000";
+
+
+</script>
+</html>
